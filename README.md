@@ -5,9 +5,9 @@ migrations Alembic, testes automatizados e uma interface web responsiva.
 
 ## Screenshots
 
-```markdown
+
 ![Tela de login](docs/screenshots/login.png)
-```
+
 
 ## Caso de uso
 
