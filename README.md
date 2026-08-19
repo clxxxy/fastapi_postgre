@@ -1,19 +1,17 @@
 # Taskflow
 
 API de gerenciamento de tarefas com FastAPI, PostgreSQL, autenticação JWT,
-migrations Alembic, testes automatizados e uma interface web responsiva.
-
-## Screenshots
-
+migrations Alembic e testes automatizados.
 
 ![Tela de login](docs/screenshots/login.png)
-
 
 ## Caso de uso
 
 Uma pessoa cria uma conta, entra em seu espaço privado e organiza tarefas. Ela
 pode criar, editar, concluir, filtrar e excluir itens. Cada tarefa pertence a um
 usuário, e a API impede leitura ou alteração por outra conta.
+
+![Board de tarefas](docs/screenshots/board.png)
 
 ## Subir do zero
 
@@ -128,11 +126,6 @@ tests/             # testes HTTP e de autorização
 Relação principal: um `User` possui muitas `Task`; a chave estrangeira
 `tasks.owner_id` garante esse vínculo no PostgreSQL.
 
-## Critérios de aceite
+- - -
 
-- [x] A API sobe do zero seguindo somente este README.
-- [x] Autenticação JWT protege as rotas de tarefas e perfil.
-- [x] As migrations rodam com `alembic upgrade head`.
-- [x] Existem testes automatizados de cadastro, criação, edição e exclusão.
-- [x] As camadas `route`, `service` e `model` estão separadas.
-
+Este projeto foi desenvolvido para avaliação da Trilha A - AI Fullstack Developer, YAITEC.
