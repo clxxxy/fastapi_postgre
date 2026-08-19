@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taskflow</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main id="auth-view" class="auth-shell">
+    <section class="brand-panel">
+      <p class="eyebrow">TASKFLOW</p>
+      <h1>Seu<br>progresso visível.</h1>
+      <p class="brand-copy">Organize suas demandas de forma eficiente e acompanhe seu progresso.</p>
+    </section>
+
+    <section class="auth-panel" aria-labelledby="auth-title">
+      <div class="auth-box">
+        <div class="auth-tabs" role="tablist">
+          <button id="login-tab" class="tab active" type="button" role="tab">Entrar</button>
+          <button id="register-tab" class="tab" type="button" role="tab">Criar conta</button>
+        </div>
+        <h2 id="auth-title">Bem-vindo de volta</h2>
+        <form id="auth-form">
+          <label id="name-field" class="hidden">
+            Nome
+            <input id="name" name="name" minlength="2" maxlength="100" autocomplete="name">
+          </label>
+          <label>
+            E-mail
+            <input id="email" name="email" type="email" required autocomplete="email">
+          </label>
+          <label>
+            Senha
+            <input id="password" name="password" type="password" minlength="8" maxlength="128" required autocomplete="current-password">
+          </label>
+          <p id="auth-error" class="error" role="alert"></p>
+          <button id="auth-submit" class="primary wide" type="submit">Entrar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <main id="app-view" class="app-shell hidden">
+    <aside class="sidebar">
+      <div>
+        <p class="eyebrow">TASKFLOW</p>
+        <nav aria-label="Filtros de tarefas">
+          <button class="nav-item active" data-filter="all" type="button"><span>Todos</span><strong id="all-count">0</strong></button>
+          <button class="nav-item" data-filter="open" type="button"><span>Em andamento</span><strong id="open-count">0</strong></button>
+          <button class="nav-item" data-filter="done" type="button"><span>Concluídos</span><strong id="done-count">0</strong></button>
+        </nav>
+      </div>
+      <div class="profile">
+        <span id="avatar" class="avatar">U</span>
+        <div><strong id="user-name">Usuário</strong><small id="user-email"></small></div>
+        <button id="logout" class="icon-button" type="button" title="Sair" aria-label="Sair">&#x21AA;</button>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <header class="toolbar">
+        <div>
+          <p id="today" class="date"></p>
+          <h1>Minhas tarefas</h1>
+        </div>
+        <button id="new-task" class="primary" type="button"><span aria-hidden="true">+</span> Nova tarefa</button>
+      </header>
+
+      <section class="summary" aria-label="Resumo">
+        <div><strong id="progress-value">0%</strong><span>progresso</span></div>
+        <div class="progress-track"><span id="progress-bar"></span></div>
+        <p id="progress-copy">Comece criando sua primeira tarefa.</p>
+      </section>
+
+      <div id="task-list" class="task-list" aria-live="polite"></div>
+      <section id="empty-state" class="empty-state hidden">
+        <span aria-hidden="true">&#10003;</span>
+        <h2>Nada por aqui</h2>
+        <p>As tarefas deste filtro aparecerão aqui.</p>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="task-dialog">
+    <form id="task-form" method="dialog">
+      <div class="dialog-heading">
+        <div><p class="eyebrow">TAREFA</p><h2 id="dialog-title">Nova tarefa</h2></div>
+        <button id="close-dialog" class="icon-button" type="button" aria-label="Fechar">&times;</button>
+      </div>
+      <input id="task-id" type="hidden">
+      <label>Título<input id="task-title" maxlength="160" required></label>
+      <label>Descrição<textarea id="task-description" maxlength="2000" rows="5"></textarea></label>
+      <label id="completed-field" class="check-field hidden"><input id="task-completed" type="checkbox"> Tarefa concluída</label>
+      <p id="task-error" class="error" role="alert"></p>
+      <div class="dialog-actions">
+        <button id="cancel-task" class="secondary" type="button">Cancelar</button>
+        <button class="primary" type="submit">Salvar tarefa</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

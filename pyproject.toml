@@ -1,0 +1,33 @@
+[project]
+name = "taskflow-api"
+version = "0.1.0"
+description = "API FastAPI com PostgreSQL, JWT e gerenciamento de tarefas"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.14,<2",
+    "asyncpg>=0.30,<1",
+    "email-validator>=2.2,<3",
+    "fastapi>=0.115,<1",
+    "pwdlib[argon2]>=0.2,<1",
+    "pyjwt>=2.9,<3",
+    "pydantic-settings>=2.6,<3",
+    "python-multipart>=0.0.12,<1",
+    "sqlalchemy>=2.0,<3",
+    "uvicorn[standard]>=0.32,<1",
+]
+
+[project.optional-dependencies]
+test = [
+    "httpx>=0.27,<1",
+    "pytest>=8.3,<9",
+    "pytest-asyncio>=0.24,<1",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
